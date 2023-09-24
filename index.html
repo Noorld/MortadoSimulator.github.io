@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortadon Simulator</title>
+
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    padding: 0 0 0 0;
+    /* padding: 50px; */
+}
+
+img {
+    margin-left: 0;
+    width: 100%;
+    height: 817px;
+    cursor: pointer;
+}
+
+.zoomAndVibrate {
+    animation: zoomAndVibrateAnimation 0.5s infinite alternate;
+}
+
+@keyframes zoomAndVibrateAnimation {
+            0% { transform: translateX(0) rotate(0deg) scale(1); }
+            10% { transform: translateX(2px) rotate(3deg) scale(1.1); }
+            20% { transform: translateX(-2px) rotate(-3deg) scale(1.1); }
+            30% { transform: translateX(2px) rotate(3deg) scale(1.1); }
+            40% { transform: translateX(-2px) rotate(-3deg) scale(1.1); }
+            50% { transform: translateX(2px) rotate(3deg) scale(1.1); }
+            60% { transform: translateX(-2px) rotate(-3deg) scale(1.1); }
+            70% { transform: translateX(2px) rotate(3deg) scale(1.1); }
+            80% { transform: translateX(-2px) rotate(-3deg) scale(1.1); }
+            90% { transform: translateX(2px) rotate(3deg) scale(1.1); }
+            100% { transform: translateX(0) rotate(0deg) scale(1); }
+        }
+</style>
+
+<body>
+
+    <div class="content">
+        <img id="soundImage" src="./Mortadon2.jpg" alt="Image" onclick="playSoundAndAnimate()">
+    </div>
+
+    <audio id="audio" src="./monstre.mp3"></audio>
+
+</body>
+<script>
+    function playSound() {
+    const audio = document.getElementById('audio');
+    audio.play();
+}
+
+function playSoundAndAnimate() {
+    const audio = document.getElementById('audio');
+    audio.play();
+
+    const image = document.getElementById('soundImage');
+    image.classList.add('zoomAndVibrate');
+
+    // Supprimez la classe d'animation après un certain délai
+    setTimeout(() => {
+        image.classList.remove('zoomAndVibrate');
+    }, 19000); // Réglez ce délai en fonction de votre préférence
+}
+</script>
+</html>
